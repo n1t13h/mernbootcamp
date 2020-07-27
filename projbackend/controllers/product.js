@@ -77,6 +77,19 @@ exports.photo = (req, res, next) => {
   }
   next();
 };
+exports.deleteProduct = (req,res) =>{
+  let product = res.product;
+  product.remove((err,deletedProduct)=>{
+    if(err){
+      return res.status(400).json({
+        error : "Failed TO Delete Product"
+      })
+    }
+    res.json({
+      message : "Deletion Was Success"
+    })
+  })
+}
 
 exports.updateProduct = (req, res) => {
   let form = new formidable.IncomingForm();

@@ -1,0 +1,30 @@
+body{
+  background: #FF512F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  
+  font-size: 20px;
+  color:white;
+}
+
+.logo{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.todo{
+  color:black;
+  margin-top: 2em;
+}
+.todo ul{
+  list-style: none;
+}
+.btn{
+  margin-left: 1em;
+
+}
+
+li{
+  margin:0.5em;
+}
