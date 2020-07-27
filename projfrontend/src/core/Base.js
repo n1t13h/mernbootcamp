@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from "./menu";
 import "../styles.css";
 
-const Base = ({title = "My Title", description = "My Description", className = "bg-dark text-white p-4",children }) => {
+const Base = ({ title = "My Title", description = "My Description", className = "bg-dark text-white p-4", children }) => {
 
     return (
         <div>
@@ -13,23 +13,17 @@ const Base = ({title = "My Title", description = "My Description", className = "
                     <p className="lead">{description}</p>
                 </div>
                 <div className={className}>
-                   {children}
+                    {children}
                 </div>
 
             </div>
-            <div className="footer bg-dark mt-auto py-3">
-                <div className="container-fluid bg-success text-white text-center py-3">
-                    <h4>If you got any questions , feel free to reach out</h4>
-                    <button className="btn btn-warning btn-lg">Contact Us</button>
-                </div>
-                <div className="container">
-                    <span className="text-muted text-center">
-                        <p>An Amazing Place To Buy!</p>
+            <footer class="page-footer font-small bg-dark text-white" >
 
-                    </span>
-
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                LearnCOdeONline
                 </div>
-            </div>
+
+            </footer>
 
         </div>
 

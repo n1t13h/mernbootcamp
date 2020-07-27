@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 .btn,
 .jumbotron,
 .nav :hover {
@@ -6,4 +7,6 @@
 
 body {
   background: #343a40;
+  font-family: 'Quicksand', sans-serif;
 }
+
