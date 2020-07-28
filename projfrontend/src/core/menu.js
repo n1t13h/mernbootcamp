@@ -1,5 +1,7 @@
-import React from 'react';
+import React,{Fragment} from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { signout, isAuthenticated } from '../auth/helper';
+
 const currentTab = (history, path) => {
     if (history.location.pathname === path) {
         return { color: "#2ecc71" }
@@ -27,15 +29,28 @@ const Menu = ({ history }) => (
                 <li className="nav-item ">
                     <Link style={currentTab(history, "/admin/dashboard")} to="/admin/dashboard" className="nav-link">Admin Dashboard</Link>
                 </li>
-                <li className="nav-item ">
-                    <Link style={currentTab(history, "/signup")} to="/signup" className="nav-link">Sign up</Link>
-                </li>
-                <li className="nav-item ">
-                    <Link style={currentTab(history, "/signin")} to="/signin" className="nav-link">Signin</Link>
-                </li>
-                <li className="nav-item ">
-                    <Link style={currentTab(history, "/signout")} to="/signout" className="nav-link">Sign out</Link>
-                </li>
+                {!isAuthenticated() && (
+                    <Fragment>
+                    <li className="nav-item ">
+                        <Link style={currentTab(history, "/signup")} to="/signup" className="nav-link">Sign up</Link>
+                    </li>
+                    <li className="nav-item ">
+                        <Link style={currentTab(history, "/signin")} to="/signin" className="nav-link">Signin</Link>
+                    </li>
+                    </Fragment>
+                )}
+                {isAuthenticated() && (
+                    <li className="nav-item ">
+                        <span className="nav-link text-warning" onClick={() => {
+                            signout(() => {
+                                history.push("/")
+                            })
+                        }}>
+                            Signout
+                        </span>
+                    </li>
+                )}
+
             </ul>
         </div>
     </nav>
