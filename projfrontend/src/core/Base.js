@@ -17,13 +17,7 @@ const Base = ({ title = "My Title", description = "My Description", className = 
                 </div>
 
             </div>
-            <footer class="page-footer font-small bg-dark text-white" >
-
-                <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                LearnCOdeONline
-                </div>
-
-            </footer>
+            
 
         </div>
 
