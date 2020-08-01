@@ -26,7 +26,7 @@ router.post(
 );
 
 router.get("/category/:categoryId", getCategory);
-router.get("/categorires", getAllCategory);
+router.get("/categories", getAllCategory);
 
 router.put(
   "/category/:categoryId/:userId",

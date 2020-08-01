@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Base from "../core/Base";
 import { isAuthenticated } from '../auth/helper';
 import { Link } from 'react-router-dom';
-import { createCategory } from "./helper/adminapicall";
-const AddCategory = () => {
+import { updateCategory, getCategory } from "./helper/adminapicall";
+const UpdateCategory = ({match,history}) => {
 
     const [name, setName] = useState("");
     const [error, setError] = useState(false);
@@ -11,12 +11,27 @@ const AddCategory = () => {
 
     const { user, token } = isAuthenticated();
 
+    useEffect(() => {
+        preload(match.params.categoryId);
+    }, [])
+
+    const preload = (categoryId) => {
+        getCategory(categoryId).then(data => {
+            if (data.error) {
+                setError(data.error);
+            } else {
+                setName(data.name);
+                // console.log(categories);
+            }
+
+        })
+    }
     const onSubmit = (event) => {
         event.preventDefault();
         setError("");
         setSuccess(false);
 
-        createCategory(user._id,token,{name})
+        updateCategory(match.params.categoryId,user._id,token,{name})
         .then(data => {
             if(data.err){
                 setError(true);
@@ -25,6 +40,9 @@ const AddCategory = () => {
                 setSuccess(true);
                 setName("");
             }
+            setTimeout(()=>(
+                history.push('/admin/dashboard')
+            ),2000)
         })
 
 
@@ -47,7 +65,7 @@ const AddCategory = () => {
     const successMessage= () =>{
         if(success){
             return <div class="alert alert-primary" role="alert">
-            Category Created Successfully
+            Category Updated Successfully , Redirecting....
           </div>
         }
     }
@@ -84,4 +102,4 @@ const AddCategory = () => {
 
     )
 }
-export default AddCategory;
+export default UpdateCategory;
