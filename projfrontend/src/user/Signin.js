@@ -99,7 +99,7 @@ const Signin = () => {
                             <label className="text-light">Password</label>
                             <input value={password} className="form-control" onChange={handleChange("password")} type="password" />
                         </div>
-                        <button onClick={onSubmit} className="btn btn-success btn-block">Submit</button>
+                        <button onClick={onSubmit} className="btn theme-red text-white font-weight-bold btn-block">Submit</button>
                     </form>
                 </div>
             </div>
@@ -108,7 +108,7 @@ const Signin = () => {
 
 
     return (
-        <Base title="Sign IN Page" description="A Page For User To Sign IN!">
+        <Base title="Sign IN Page" description="A Page For User To Sign IN!" className="theme-blue container pt-4 pb-4 mb-4">
             {loadingMessage()}
             {errorMessage()}
             {signInForm()}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import "../styles.css";
+import { API } from "../backend";
 import Base from "./Base";
 import Card from "./Card";
+import Paymentb from "./paymentB";
 import { loadCart } from "./helper/CartHelper";
-
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
@@ -11,12 +13,12 @@ const Cart = () => {
     setProducts(loadCart());
   }, [reload]);
 
-  const loadAllProducts = () => {
+  const loadAllProducts = products => {
     return (
-      <div>
-        <h2>This section is to load products</h2>
+      <div className="row ml-2">
         {products.map((product, index) => (
-          <Card
+          <div className="col-6">
+            <Card
             key={index}
             product={product}
             removeFromCart={true}
@@ -24,6 +26,7 @@ const Cart = () => {
             setReload={setReload}
             reload={reload}
           />
+          </div>
         ))}
       </div>
     );
@@ -37,10 +40,19 @@ const Cart = () => {
   };
 
   return (
-    <Base title="Cart Page" description="Ready to checkout">
+    <Base title="Cart Page" description="Ready to checkout" className="theme-white container">
       <div className="row text-center">
-        <div className="col-6">{loadAllProducts()}</div>
-        <div className="col-6">Checkout section</div>
+        <div className="col-6">
+          <h1>Your Cart<i class="fa fa-shopping-cart"></i></h1>
+          {products.length > 0 ? (
+            loadAllProducts(products)
+          ) : (
+            <h4>No products</h4>
+          )}
+        </div>
+        <div className="col-6 ">
+          <Paymentb products={products} setReload={setReload} />
+        </div>
       </div>
     </Base>
   );

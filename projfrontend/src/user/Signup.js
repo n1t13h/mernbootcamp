@@ -97,7 +97,7 @@ const Signup = () => {
         )
     }
     return (
-        <Base title="Sign Up Page" description="A Page For User To Sign Up!">
+        <Base title="Sign Up Page" description="A Page For User To Sign Up!" className="theme-blue container pt-4 pb-4 mb-4">
             {successMessage()}
             {errorMessage()}
             {signUpForm()}

@@ -4,14 +4,14 @@ import { signout, isAuthenticated } from '../auth/helper';
 
 const currentTab = (history, path) => {
     if (history.location.pathname === path) {
-        return { color: "#2ecc71" }
+        return { color: "#e71d36" }
     } else {
         return { color: "#FFFFFF" }
     }
 }
 const Menu = ({ history }) => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link className="navbar-brand">Navbar</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark theme-black">
+        <h5 className="navbar-brand">Navbar</h5>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>

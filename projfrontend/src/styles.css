@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #343a40;
+  /* background: #fdfffc; */
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -15,4 +15,20 @@ footer {
   bottom: 0px;
   right: 0px;
   left: 0px;
+}
+
+.theme-black{
+  background-color:#011627
+}
+.theme-white{
+  background-color: #fdfffc;
+}
+.theme-blue{
+  background-color: #2ec4b6;
+}
+.theme-red{
+  background-color: #e71d36;
+}
+.theme-yellow{
+  background-color: #ff9f1c;
 }

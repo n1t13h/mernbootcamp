@@ -23,9 +23,9 @@ const App = () => {
     loadAllProducts();
   },[])
   return (
-    <Base title="Homepage">
+    <Base title="Homepage" description="Best Customized Tshirt Store" className="container theme-white text-black">
       <div className="row text-center">
-        <h1 className="text-white">All Of Tshirts</h1>
+        <h1 className="text-black">All Of Tshirts</h1>
         <div className="row">
           {products.map((product,index)=>{
             return(
